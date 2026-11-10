@@ -1,0 +1,73 @@
+/* custom.css подключается после Bootstrap и только донастраивает его */
+:root {
+  --brand: #14213d;        /* тёмно-синий, как шахматное поле */
+  --brand-2: #fca311;      /* жёлтый, как фишка */
+  --surface: #eef1f6;
+  --bs-body-bg: var(--surface);
+  --bs-body-color: #1d2433;
+  --bs-body-font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --bs-link-color-rgb: 20, 33, 61;
+  --bs-link-hover-color-rgb: 15, 118, 110;
+}
+h1, h2, .brand-logo, .hero-title { font-family: "Unbounded", "Trebuchet MS", sans-serif; letter-spacing: -0.01em; }
+.bg-brand { background-color: var(--brand); }
+.brand-logo { font-weight: 700; color: var(--brand-2) !important; }
+.site-footer .brand-logo { font-size: 1.25rem; }
+
+/* собственная кнопка: Bootstrap 5.3 позволяет настраивать кнопки через переменные */
+.btn-brand {
+  --bs-btn-color: var(--brand);
+  --bs-btn-bg: var(--brand-2);
+  --bs-btn-border-color: var(--brand-2);
+  --bs-btn-hover-color: var(--brand);
+  --bs-btn-hover-bg: #ffb740;
+  --bs-btn-hover-border-color: #ffb740;
+  --bs-btn-active-bg: #e8920a;
+  --bs-btn-active-border-color: #e8920a;
+  --bs-btn-active-color: var(--brand);
+  --bs-btn-focus-shadow-rgb: 252, 163, 17;
+  font-weight: 700;
+}
+
+/* hero: шахматная клетка из conic-gradient */
+.hero {
+  color: #fff;
+  background:
+    conic-gradient(rgba(255,255,255,.05) 25%, transparent 0 50%, rgba(255,255,255,.05) 0 75%, transparent 0) 0 0 / 64px 64px,
+    var(--brand);
+  padding: 3rem 0;
+}
+.hero-title { font-size: clamp(1.75rem, 4.5vw, 3rem); line-height: 1.15; margin-bottom: 1rem; }
+.section-title { font-size: clamp(1.4rem, 3vw, 2rem); }
+
+/* карусель акций: фон задан градиентами, картинки не нужны */
+.promo .carousel-item { min-height: 230px; display: none; }
+.promo .carousel-item.active, .promo .carousel-item-next, .promo .carousel-item-prev { display: flex; }
+.promo-text { align-self: flex-end; padding: 1.5rem 3.5rem 2.5rem; color: #fff; }
+.promo-1 { background: linear-gradient(135deg, #d62839, #7a1522); }
+.promo-2 { background: linear-gradient(135deg, #2a9d8f, #17524b); }
+.promo-3 { background: linear-gradient(135deg, #7b5ea7, #3d2a5c); }
+
+/* карточки */
+.product-card { border: 1px solid #dde2ec; transition: box-shadow .15s ease, transform .15s ease; }
+.product-card:hover { box-shadow: 0 .5rem 1.25rem rgba(20,33,61,.15); transform: translateY(-2px); }
+.advantage { border-left: 4px solid var(--brand-2); }
+.price { font-weight: 700; font-size: 1.25rem; color: var(--brand); }
+.price-lg { font-size: 2rem; }
+.readable { max-width: 70ch; }
+
+.site-footer { background: var(--brand); color: #dfe5f1; }
+.site-footer a { color: #fff; }
+
+/* на узких экранах убираем лишние отступы hero */
+@media (max-width: 575.98px) {
+  .hero { padding: 2rem 0; }
+  .promo-text { padding: 1rem 3rem 2.25rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .product-card { transition: none; }
+  .product-card:hover { transform: none; }
+}
+
+/* заголовки внутри тёмных блоков всегда светлые */
+.hero, .site-footer { --bs-heading-color: #fff; }
