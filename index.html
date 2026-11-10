@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Магазин настольных игр: семейные, стратегии, вечеринки и классика.">
+  <title>Ход конём - магазин настольных игр</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap CSS (CDN). Если нужен локальный вариант: python use_local.py -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- custom.css подключается ПОСЛЕ Bootstrap, чтобы переопределять его стили -->
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-brand sticky-top">
+    <div class="container">
+      <a class="navbar-brand brand-logo" href="index.html">Ход конём</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Открыть меню">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link active" href="index.html" aria-current="page">Главная</a></li>
+        <li class="nav-item"><a class="nav-link" href="catalog.html">Каталог</a></li>
+        <li class="nav-item"><a class="nav-link" href="product.html">Товар</a></li>
+        <li class="nav-item"><a class="nav-link" href="order.html">Заявка</a></li>
+        </ul>
+        <div class="d-flex flex-column flex-lg-row gap-2">
+          <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#askModal">Задать вопрос</button>
+          <a class="btn btn-brand" href="order.html">Корзина <span class="badge text-bg-light" id="cartCount">0</span></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="container mt-3">
+  <div class="alert alert-warning alert-dismissible fade show mb-0" role="alert">
+    <strong>Бесплатная доставка</strong> при заказе от 3000 ₽ по всей России.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Закрыть"></button>
+  </div>
+</div>
+
+<main>
+<section class="hero my-4">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-12 col-lg-7">
+        <h1 class="hero-title">Игры, после которых хочется сыграть ещё раз</h1>
+        <p class="lead">Подбираем настольные игры для семьи, компании и турниров. Объясним правила, поможем выбрать и привезём за два дня.</p>
+        <div class="d-grid gap-2 d-sm-flex">
+          <a href="catalog.html" class="btn btn-brand btn-lg">Смотреть каталог</a>
+          <button type="button" class="btn btn-outline-light btn-lg" data-bs-toggle="modal" data-bs-target="#askModal">Помочь выбрать</button>
+        </div>
+      </div>
+      <div class="col-12 col-lg-5">
+        <div id="promo" class="carousel slide promo" data-bs-ride="carousel" aria-label="Акции">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#promo" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Слайд 1"></button>
+            <button type="button" data-bs-target="#promo" data-bs-slide-to="1" aria-label="Слайд 2"></button>
+            <button type="button" data-bs-target="#promo" data-bs-slide-to="2" aria-label="Слайд 3"></button>
+          </div>
+          <div class="carousel-inner rounded-3">
+            <div class="carousel-item active promo-1"><div class="promo-text"><h2 class="h4">Манчкин -20%</h2><p class="mb-0">Скидка до конца месяца</p></div></div>
+            <div class="carousel-item promo-2"><div class="promo-text"><h2 class="h4">Новинки осени</h2><p class="mb-0">Диксит и Азул уже на складе</p></div></div>
+            <div class="carousel-item promo-3"><div class="promo-text"><h2 class="h4">Подарочная упаковка</h2><p class="mb-0">Бесплатно к любому заказу</p></div></div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#promo" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Назад</span></button>
+          <button class="carousel-control-next" type="button" data-bs-target="#promo" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Вперёд</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container my-5">
+  <h2 class="section-title mb-4">Почему у нас</h2>
+  <div class="row g-4">
+    <div class="col-12 col-md-4"><div class="card h-100 advantage"><div class="card-body"><h3 class="h5">Проверено на практике</h3><p class="mb-0">Мы сами играем во всё, что продаём, и честно говорим, кому какая игра подойдёт.</p></div></div></div>
+    <div class="col-12 col-md-4"><div class="card h-100 advantage"><div class="card-body"><h3 class="h5">Быстрая доставка</h3><p class="mb-0">Отправляем в день заказа, по городу привозим курьером за один-два дня.</p></div></div></div>
+    <div class="col-12 col-md-4"><div class="card h-100 advantage"><div class="card-body"><h3 class="h5">Обмен и возврат</h3><p class="mb-0">Если коробка вскрыта, но игра не подошла, обменяем в течение 14 дней.</p></div></div></div>
+  </div>
+</section>
+
+<section class="container my-5">
+  <div class="d-flex justify-content-between align-items-end mb-4">
+    <h2 class="section-title mb-0">Популярные игры</h2>
+    <a href="catalog.html" class="btn btn-outline-dark btn-sm">Весь каталог</a>
+  </div>
+  <div class="row g-4">
+      <div class="col-12 col-sm-6 col-lg-3 product-col" data-cat="Семейные" data-price="2490" data-name="каркассон">
+        <article class="card h-100 product-card">
+          <img src="images/p1.svg" class="card-img-top" alt="Коробка игры Каркассон" loading="lazy">
+          <div class="card-body d-flex flex-column">
+            <div class="mb-2"><span class="badge text-bg-warning me-1">Хит</span><span class="badge text-bg-light border">Семейные</span></div>
+            <h3 class="h5 card-title">Каркассон</h3>
+            <p class="card-text text-body-secondary small">Выкладываем плитки и строим средневековый город.</p>
+            <p class="small mb-3">2-5 игроков · 30-45 мин · 7+</p>
+            <div class="mt-auto">
+              <div class="price mb-2">2 490 ₽</div>
+              <div class="d-grid gap-2 d-sm-flex">
+                <a class="btn btn-outline-dark btn-sm flex-fill" href="product.html?id=1">Подробнее</a>
+                <button type="button" class="btn btn-brand btn-sm flex-fill js-add" data-id="1" data-title="Каркассон">В корзину</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-3 product-col" data-cat="Стратегии" data-price="3590" data-name="катан">
+        <article class="card h-100 product-card">
+          <img src="images/p2.svg" class="card-img-top" alt="Коробка игры Катан" loading="lazy">
+          <div class="card-body d-flex flex-column">
+            <div class="mb-2"><span class="badge text-bg-warning me-1">Хит</span><span class="badge text-bg-light border">Стратегии</span></div>
+            <h3 class="h5 card-title">Катан</h3>
+            <p class="card-text text-body-secondary small">Торговля ресурсами и строительство на острове.</p>
+            <p class="small mb-3">3-4 игроков · 60-120 мин · 10+</p>
+            <div class="mt-auto">
+              <div class="price mb-2">3 590 ₽</div>
+              <div class="d-grid gap-2 d-sm-flex">
+                <a class="btn btn-outline-dark btn-sm flex-fill" href="product.html?id=2">Подробнее</a>
+                <button type="button" class="btn btn-brand btn-sm flex-fill js-add" data-id="2" data-title="Катан">В корзину</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-3 product-col" data-cat="Семейные" data-price="1390" data-name="взрывные котята">
+        <article class="card h-100 product-card">
+          <img src="images/p7.svg" class="card-img-top" alt="Коробка игры Взрывные котята" loading="lazy">
+          <div class="card-body d-flex flex-column">
+            <div class="mb-2"><span class="badge text-bg-warning me-1">Хит</span><span class="badge text-bg-light border">Семейные</span></div>
+            <h3 class="h5 card-title">Взрывные котята</h3>
+            <p class="card-text text-body-secondary small">Быстрая карточная игра, где главное не взорваться.</p>
+            <p class="small mb-3">2-5 игроков · 15 мин · 7+</p>
+            <div class="mt-auto">
+              <div class="price mb-2">1 390 ₽</div>
+              <div class="d-grid gap-2 d-sm-flex">
+                <a class="btn btn-outline-dark btn-sm flex-fill" href="product.html?id=7">Подробнее</a>
+                <button type="button" class="btn btn-brand btn-sm flex-fill js-add" data-id="7" data-title="Взрывные котята">В корзину</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-3 product-col" data-cat="Семейные" data-price="2990" data-name="азул">
+        <article class="card h-100 product-card">
+          <img src="images/p6.svg" class="card-img-top" alt="Коробка игры Азул" loading="lazy">
+          <div class="card-body d-flex flex-column">
+            <div class="mb-2"><span class="badge text-bg-success me-1">Новинка</span><span class="badge text-bg-light border">Семейные</span></div>
+            <h3 class="h5 card-title">Азул</h3>
+            <p class="card-text text-body-secondary small">Красивая абстрактная игра с плитками-мозаикой.</p>
+            <p class="small mb-3">2-4 игроков · 30-45 мин · 8+</p>
+            <div class="mt-auto">
+              <div class="price mb-2">2 990 ₽</div>
+              <div class="d-grid gap-2 d-sm-flex">
+                <a class="btn btn-outline-dark btn-sm flex-fill" href="product.html?id=6">Подробнее</a>
+                <button type="button" class="btn btn-brand btn-sm flex-fill js-add" data-id="6" data-title="Азул">В корзину</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+  </div>
+</section>
+
+<section class="container my-5">
+  <h2 class="section-title mb-4">Частые вопросы</h2>
+  <div class="row">
+    <div class="col-12 col-lg-9">
+      <div class="accordion" id="faq">
+        <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#f1" aria-expanded="true" aria-controls="f1">Как оплатить заказ?</button></h3>
+          <div id="f1" class="accordion-collapse collapse show" data-bs-parent="#faq"><div class="accordion-body">Картой на сайте или при получении, а также наличными курьеру.</div></div></div>
+        <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f2" aria-expanded="false" aria-controls="f2">Сколько идёт доставка?</button></h3>
+          <div id="f2" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body">По городу один-два дня, по России от трёх до семи дней в зависимости от региона.</div></div></div>
+        <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f3" aria-expanded="false" aria-controls="f3">Можно ли вернуть игру?</button></h3>
+          <div id="f3" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body">Да, в течение 14 дней, если сохранены комплектность и товарный вид.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer mt-5 py-4">
+  <div class="container">
+    <div class="row g-3 align-items-center">
+      <div class="col-12 col-md-6">
+        <span class="brand-logo">Ход конём</span>
+        <p class="mb-0 small">Магазин настольных игр. Учебный проект, контрольная работа №2.</p>
+      </div>
+      <div class="col-12 col-md-6 text-md-end small">
+        <a href="catalog.html">Каталог</a> · <a href="order.html">Заявка</a><br>
+        Телефон: +7 (900) 000-00-00 · info@hodkonyom.example
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Модальное окно "Задать вопрос" (есть на каждой странице) -->
+<div class="modal fade" id="askModal" tabindex="-1" aria-labelledby="askModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5" id="askModalLabel">Задать вопрос продавцу</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+      </div>
+      <form id="askForm" novalidate>
+        <div class="modal-body">
+          <div class="alert alert-success d-none" id="askOk" role="alert">Спасибо! Мы ответим в течение рабочего дня.</div>
+          <div class="mb-3">
+            <label for="askName" class="form-label">Ваше имя</label>
+            <input type="text" class="form-control" id="askName" name="name" required>
+            <div class="invalid-feedback">Введите имя.</div>
+          </div>
+          <div class="mb-3">
+            <label for="askEmail" class="form-label">E-mail</label>
+            <input type="email" class="form-control" id="askEmail" name="email" required>
+            <div class="invalid-feedback">Введите корректный e-mail.</div>
+          </div>
+          <div class="mb-0">
+            <label for="askText" class="form-label">Вопрос</label>
+            <textarea class="form-control" id="askText" name="question" rows="3" required></textarea>
+            <div class="invalid-feedback">Напишите вопрос.</div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Закрыть</button>
+          <button type="submit" class="btn btn-brand">Отправить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Toast: уведомление о добавлении в корзину -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="cartToast" class="toast align-items-center text-bg-dark border-0" role="status" aria-live="polite" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body" id="cartToastText">Товар добавлен в корзину</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

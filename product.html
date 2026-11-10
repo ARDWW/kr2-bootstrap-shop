@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Страница товара: описание, характеристики и отзывы.">
+  <title>Товар - Ход конём</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap CSS (CDN). Если нужен локальный вариант: python use_local.py -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- custom.css подключается ПОСЛЕ Bootstrap, чтобы переопределять его стили -->
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-brand sticky-top">
+    <div class="container">
+      <a class="navbar-brand brand-logo" href="index.html">Ход конём</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Открыть меню">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+        <li class="nav-item"><a class="nav-link" href="catalog.html">Каталог</a></li>
+        <li class="nav-item"><a class="nav-link active" href="product.html" aria-current="page">Товар</a></li>
+        <li class="nav-item"><a class="nav-link" href="order.html">Заявка</a></li>
+        </ul>
+        <div class="d-flex flex-column flex-lg-row gap-2">
+          <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#askModal">Задать вопрос</button>
+          <a class="btn btn-brand" href="order.html">Корзина <span class="badge text-bg-light" id="cartCount">0</span></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="container my-4">
+  <nav aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="index.html">Главная</a></li><li class="breadcrumb-item"><a href="catalog.html">Каталог</a></li><li class="breadcrumb-item active" aria-current="page" id="bcName">Каркассон</li></ol></nav>
+  <div class="row g-4 g-lg-5">
+    <div class="col-12 col-md-6">
+      <img id="pImg" src="images/p1.svg" class="img-fluid rounded-3 w-100" alt="Коробка игры Каркассон">
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="mb-2" id="pBadges"><span class="badge text-bg-warning me-1">Хит</span><span class="badge text-bg-light border">Семейные</span></div>
+      <h1 class="section-title" id="pTitle">Каркассон</h1>
+      <p class="lead" id="pShort">Выкладываем плитки и строим средневековый город.</p>
+      <div class="price price-lg mb-3" id="pPrice">2 490 ₽</div>
+
+      <div class="row g-2 align-items-center mb-3">
+        <div class="col-auto">
+          <label for="qty" class="visually-hidden">Количество</label>
+          <div class="input-group" style="width:9rem">
+            <button class="btn btn-outline-secondary" type="button" id="qMinus" aria-label="Меньше">-</button>
+            <input type="number" class="form-control text-center" id="qty" name="qty" value="1" min="1" max="10">
+            <button class="btn btn-outline-secondary" type="button" id="qPlus" aria-label="Больше">+</button>
+          </div>
+        </div>
+        <div class="col-auto"><button type="button" class="btn btn-brand btn-lg js-add" id="pAdd" data-id="1" data-title="Каркассон">В корзину</button></div>
+        <div class="col-auto"><a class="btn btn-outline-dark btn-lg" id="pOrder" href="order.html?product=1">Оставить заявку</a></div>
+      </div>
+      <div class="alert alert-success" role="note"><strong>В наличии.</strong> Отправим сегодня, если заказ оформлен до 16:00.</div>
+    </div>
+  </div>
+
+  <ul class="nav nav-tabs mt-5" id="pTabs" role="tablist">
+    <li class="nav-item" role="presentation"><button class="nav-link active" id="t1" data-bs-toggle="tab" data-bs-target="#tab-desc" type="button" role="tab" aria-controls="tab-desc" aria-selected="true">Описание</button></li>
+    <li class="nav-item" role="presentation"><button class="nav-link" id="t2" data-bs-toggle="tab" data-bs-target="#tab-spec" type="button" role="tab" aria-controls="tab-spec" aria-selected="false">Характеристики</button></li>
+    <li class="nav-item" role="presentation"><button class="nav-link" id="t3" data-bs-toggle="tab" data-bs-target="#tab-rev" type="button" role="tab" aria-controls="tab-rev" aria-selected="false">Отзывы</button></li>
+  </ul>
+  <div class="tab-content border border-top-0 rounded-bottom p-3 p-md-4 bg-white">
+    <div class="tab-pane fade show active" id="tab-desc" role="tabpanel" aria-labelledby="t1" tabindex="0"><p class="mb-0 readable" id="pDesc">Классика о строительстве карты: каждый ход вы берёте плитку и достраиваете дороги, города и монастыри, а потом ставите подданного, чтобы получить очки. Правила объясняются за пять минут, а партии хватает на вечер.</p></div>
+    <div class="tab-pane fade" id="tab-spec" role="tabpanel" aria-labelledby="t2" tabindex="0">
+      <div class="table-responsive"><table class="table table-striped mb-0"><tbody id="pSpecs">
+        <tr><th scope="row">Категория</th><td>Семейные</td></tr>
+        <tr><th scope="row">Игроков</th><td>2-5</td></tr>
+        <tr><th scope="row">Время партии</th><td>30-45 мин</td></tr>
+        <tr><th scope="row">Возраст</th><td>7+</td></tr>
+      </tbody></table></div>
+    </div>
+    <div class="tab-pane fade" id="tab-rev" role="tabpanel" aria-labelledby="t3" tabindex="0">
+      <div class="mb-3"><strong>Анна</strong> <span class="badge text-bg-success">Рекомендует</span><p class="mb-0">Купили на семейный вечер, сыграли три партии подряд.</p></div>
+      <div><strong>Игорь</strong> <span class="badge text-bg-success">Рекомендует</span><p class="mb-0">Правила понятные, коробка качественная, доставили быстро.</p></div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer mt-5 py-4">
+  <div class="container">
+    <div class="row g-3 align-items-center">
+      <div class="col-12 col-md-6">
+        <span class="brand-logo">Ход конём</span>
+        <p class="mb-0 small">Магазин настольных игр. Учебный проект, контрольная работа №2.</p>
+      </div>
+      <div class="col-12 col-md-6 text-md-end small">
+        <a href="catalog.html">Каталог</a> · <a href="order.html">Заявка</a><br>
+        Телефон: +7 (900) 000-00-00 · info@hodkonyom.example
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Модальное окно "Задать вопрос" (есть на каждой странице) -->
+<div class="modal fade" id="askModal" tabindex="-1" aria-labelledby="askModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5" id="askModalLabel">Задать вопрос продавцу</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+      </div>
+      <form id="askForm" novalidate>
+        <div class="modal-body">
+          <div class="alert alert-success d-none" id="askOk" role="alert">Спасибо! Мы ответим в течение рабочего дня.</div>
+          <div class="mb-3">
+            <label for="askName" class="form-label">Ваше имя</label>
+            <input type="text" class="form-control" id="askName" name="name" required>
+            <div class="invalid-feedback">Введите имя.</div>
+          </div>
+          <div class="mb-3">
+            <label for="askEmail" class="form-label">E-mail</label>
+            <input type="email" class="form-control" id="askEmail" name="email" required>
+            <div class="invalid-feedback">Введите корректный e-mail.</div>
+          </div>
+          <div class="mb-0">
+            <label for="askText" class="form-label">Вопрос</label>
+            <textarea class="form-control" id="askText" name="question" rows="3" required></textarea>
+            <div class="invalid-feedback">Напишите вопрос.</div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Закрыть</button>
+          <button type="submit" class="btn btn-brand">Отправить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Toast: уведомление о добавлении в корзину -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="cartToast" class="toast align-items-center text-bg-dark border-0" role="status" aria-live="polite" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body" id="cartToastText">Товар добавлен в корзину</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/products.js"></script>
+<script src="js/product.js"></script>
+</body>
+</html>
