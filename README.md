@@ -65,5 +65,5 @@ kr2-bootstrap-shop/
 - Скрипт `use_local.py` для перехода на локальный Bootstrap.
 
 
-
+ССЫЛКА НА PAGES: https://ardww.github.io/kr2-bootstrap-shop/
 
