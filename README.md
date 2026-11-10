@@ -16,9 +16,6 @@ Bootstrap 5.3.8.
 Bootstrap подключён **через CDN** (jsDelivr). CSS стоит в `<head>`, а `css/custom.css` подключён после него, чтобы переопределять стили.
 JS-бандл `bootstrap.bundle.min.js` подключён перед `</body>`: он нужен для меню, модального окна, аккордеона, вкладок, карусели и toast.
 
-Чтобы перейти на **локальное подключение**, запустите `python use_local.py`. Скрипт скачает файлы в `vendor/bootstrap/`
-(`css/bootstrap.min.css` и `js/bootstrap.bundle.min.js`) и заменит ссылки во всех html-файлах.
-После этого нужно изменить этот раздел README: «Bootstrap подключён локально из папки `vendor/bootstrap/`».
 
 ## Структура проекта
 ```
